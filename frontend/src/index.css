@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #0a0a0f;
+    color: #e2e8f0;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0f;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1a1a2e;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff0040;
+  }
+
+  ::selection {
+    background: rgba(255, 0, 64, 0.3);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .neon-border {
+    border: 1px solid rgba(255, 0, 64, 0.4);
+    box-shadow: 0 0 8px rgba(255, 0, 64, 0.15);
+  }
+
+  .neon-border:hover {
+    border-color: rgba(255, 0, 64, 0.8);
+    box-shadow: 0 0 15px rgba(255, 0, 64, 0.3);
+  }
+
+  .panel {
+    background: #0f0f1a;
+    border: 1px solid #1a1a2e;
+    border-radius: 4px;
+  }
+
+  .panel-header {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #1a1a2e;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #ff0040;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-neon-red text-white font-mono text-sm font-medium rounded
+           hover:bg-red-600 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-neon-red focus:ring-offset-2 focus:ring-offset-abyss-bg;
+    box-shadow: 0 0 10px rgba(255, 0, 64, 0.3);
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 border border-abyss-border text-terminal-gray font-mono text-sm
+           hover:border-neon-red hover:text-neon-red transition-all duration-200 rounded
+           focus:outline-none focus:ring-1 focus:ring-neon-red;
+  }
+
+  .input-field {
+    @apply w-full bg-abyss-bg border border-abyss-border rounded px-3 py-2
+           font-mono text-sm text-gray-300 placeholder-terminal-gray
+           focus:outline-none focus:border-neon-red focus:ring-1 focus:ring-neon-red
+           transition-colors duration-200;
+  }
+
+  .tag {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-mono
+           bg-abyss-border text-terminal-gray;
+  }
+
+  .tag-red {
+    @apply tag bg-neon-redGlow text-neon-red border border-neon-redDim;
+  }
+
+  .badge-type {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-mono font-medium uppercase tracking-wider;
+  }
+
+  .glitch-text {
+    animation: glitch 0.3s ease-in-out;
+  }
+
+  .scanline-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+    z-index: 9999;
+  }
+}
+
+/* Type badge colors */
+.type-recon { background: rgba(0, 212, 255, 0.15); color: #00d4ff; border: 1px solid rgba(0, 212, 255, 0.3); }
+.type-exploit { background: rgba(255, 0, 64, 0.15); color: #ff0040; border: 1px solid rgba(255, 0, 64, 0.3); }
+.type-post-exploitation { background: rgba(255, 100, 0, 0.15); color: #ff6400; border: 1px solid rgba(255, 100, 0, 0.3); }
+.type-tool { background: rgba(100, 255, 100, 0.15); color: #64ff64; border: 1px solid rgba(100, 255, 100, 0.3); }
+.type-payload { background: rgba(200, 0, 255, 0.15); color: #c800ff; border: 1px solid rgba(200, 0, 255, 0.3); }
+.type-writeup { background: rgba(255, 255, 0, 0.15); color: #ffff00; border: 1px solid rgba(255, 255, 0, 0.3); }
+.type-poc { background: rgba(255, 150, 0, 0.15); color: #ff9600; border: 1px solid rgba(255, 150, 0, 0.3); }
+.type-zero-day { background: rgba(255, 0, 0, 0.25); color: #ff4444; border: 1px solid rgba(255, 0, 0, 0.5); }
+.type-case-study { background: rgba(0, 255, 200, 0.15); color: #00ffc8; border: 1px solid rgba(0, 255, 200, 0.3); }
+.type-mitre-technique { background: rgba(150, 150, 255, 0.15); color: #9696ff; border: 1px solid rgba(150, 150, 255, 0.3); }
